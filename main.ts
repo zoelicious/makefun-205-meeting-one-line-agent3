@@ -5,6 +5,8 @@ const LINE = "The meeting to discuss the missed deadline ended by moving the dea
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR || "/output";
 
+if (LINE.length === 0) throw new Error("entry line must not be empty");
+
 try {
   mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, "entry.txt"), LINE + "\n", "utf8");
